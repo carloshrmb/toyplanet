@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Paleta Toy Planet — azul espacio como base ordenada,
+  naranja cálido para CTAs y morado/amarillo como acentos.
+*/
+@theme {
+  /* Azul espacio (fondos hero / footer) */
+  --color-space-950: #060f2e;
+  --color-space-900: #081a4a;
+  --color-space-800: #0e2a6b;
+  --color-space-700: #1a3a8f;
+
+  /* Azul cielo (color de marca) */
+  --color-cielo-100: #e9f5ff;
+  --color-cielo-200: #cdeafd;
+  --color-cielo-300: #8fcdf9;
+  --color-cielo-500: #3fa9f5;
+  --color-cielo-600: #1b8fe0;
+
+  /* Morado suave (acento secundario) */
+  --color-grape-100: #efebff;
+  --color-grape-400: #a795f0;
+  --color-grape-500: #8e7ce8;
+  --color-grape-700: #5d4bb8;
+
+  /* Naranja cálido (botones y CTAs) */
+  --color-sunset-400: #ffa25c;
+  --color-sunset-500: #ff8a3d;
+  --color-sunset-600: #f26e1d;
+
+  /* Amarillo estrella (detalles) */
+  --color-star-300: #ffe09a;
+  --color-star-400: #ffd166;
+
+  /* Texto */
+  --color-ink-600: #4a5878;
+  --color-ink-900: #1e2a4a;
+
+  /* Tipografías (definidas en layout.tsx con next/font) */
+  --font-display: var(--font-baloo);
+  --font-sans: var(--font-nunito);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* Compensa el header sticky al navegar con anclas */
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-ink-900);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+/* Astronauta flotando (elemento firma del sitio) */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(4deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Parpadeo suave de las estrellas del cielo espacial */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-twinkle {
+    animation: none;
+  }
 }
