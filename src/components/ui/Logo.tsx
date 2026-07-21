@@ -1,55 +1,116 @@
 /**
- * Recreación en SVG del logo de Toy Planet:
- * arcoíris + planeta azul + cintillo rojo "Un mundo de diversión".
- * Es el único punto de color "explosivo" del sitio; se puede
- * sustituir por el archivo oficial del logo cuando esté disponible.
+ * Recreación en SVG del logo real de Toy Planet:
+ * "toy planet" en letras tipo burbuja con colores arcoíris sobre
+ * un planeta azul con destellos, estrellas amarillas alrededor y
+ * cintillo rojo con "UN MUNDO DE DIVERSIÓN".
+ * Sustituir por el archivo oficial cuando esté disponible.
  */
-export default function Logo({ className = "h-12 w-auto" }: { className?: string }) {
+
+// Colores arcoíris de las letras (verde, rojo, azul, amarillo, morado)
+const TOY_COLORS = ["#58b947", "#e63946", "#3fa9f5"];
+const PLANET_COLORS = ["#ffc93c", "#9a8ce8", "#58b947", "#e63946", "#3fa9f5", "#ffc93c"];
+
+const STAR_POSITIONS = [
+  { x: 28, y: 22, s: 1 },
+  { x: 172, y: 18, s: 0.8 },
+  { x: 14, y: 62, s: 0.7 },
+  { x: 186, y: 58, s: 1 },
+  { x: 44, y: 8, s: 0.6 },
+  { x: 152, y: 4, s: 0.7 },
+];
+
+function Star4({ x, y, s }: { x: number; y: number; s: number }) {
+  return (
+    <path
+      transform={`translate(${x} ${y}) scale(${s})`}
+      d="M0,-7 Q1.5,-1.5 7,0 Q1.5,1.5 0,7 Q-1.5,1.5 -7,0 Q-1.5,-1.5 0,-7 Z"
+      fill="#ffd166"
+      stroke="#fff"
+      strokeWidth="1"
+    />
+  );
+}
+
+export default function Logo({ className = "h-14 w-auto" }: { className?: string }) {
+  const letterStyle = {
+    fontFamily: "var(--font-baloo), sans-serif",
+    fontWeight: 800,
+    paintOrder: "stroke" as const,
+    stroke: "#ffffff",
+    strokeLinejoin: "round" as const,
+  };
+
   return (
     <svg
-      viewBox="0 0 150 100"
+      viewBox="0 0 200 150"
       className={className}
       role="img"
       aria-label="Toy Planet — Un mundo de diversión"
     >
-      {/* Arcoíris */}
-      <g fill="none" strokeLinecap="round">
-        <path d="M25 62 A50 50 0 0 1 125 62" stroke="#e63946" strokeWidth="7" />
-        <path d="M32 62 A43 43 0 0 1 118 62" stroke="#ff8a3d" strokeWidth="7" />
-        <path d="M39 62 A36 36 0 0 1 111 62" stroke="#ffd166" strokeWidth="7" />
-        <path d="M46 62 A29 29 0 0 1 104 62" stroke="#7bc950" strokeWidth="7" />
-        <path d="M53 62 A22 22 0 0 1 97 62" stroke="#3fa9f5" strokeWidth="7" />
-      </g>
-
-      {/* Planeta azul con continentes */}
-      <circle cx="75" cy="60" r="24" fill="#3fa9f5" />
+      {/* Planeta azul con destellos */}
+      <circle cx="100" cy="62" r="50" fill="#3fa9f5" stroke="#1f6fa0" strokeWidth="3" />
       <path
-        d="M58 50 q8 -4 14 1 q6 5 14 0 q4 -2 8 1 M56 65 q10 6 20 2 q10 -4 18 2"
+        d="M66 40 q14 -8 26 -2 q14 7 26 0 q8 -4 16 0"
         stroke="#8fd3ff"
-        strokeWidth="5"
+        strokeWidth="6"
         fill="none"
         strokeLinecap="round"
-        opacity="0.85"
+        opacity="0.8"
       />
-      <circle cx="75" cy="60" r="24" fill="none" stroke="#0e2a6b" strokeWidth="2.5" />
+      <path
+        d="M62 82 q16 9 32 3 q16 -6 34 3"
+        stroke="#8fd3ff"
+        strokeWidth="6"
+        fill="none"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+      <circle cx="76" cy="30" r="4" fill="#ffffff" opacity="0.9" />
+
+      {/* Estrellas amarillas alrededor */}
+      {STAR_POSITIONS.map((p, i) => (
+        <Star4 key={i} {...p} />
+      ))}
+
+      {/* "toy" en letras burbuja */}
+      <text x="100" y="58" textAnchor="middle" fontSize="34" strokeWidth="7" style={letterStyle}>
+        {["t", "o", "y"].map((ch, i) => (
+          <tspan key={i} fill={TOY_COLORS[i]}>
+            {ch}
+          </tspan>
+        ))}
+      </text>
+
+      {/* "planet" en letras burbuja */}
+      <text x="100" y="92" textAnchor="middle" fontSize="30" strokeWidth="6" style={letterStyle}>
+        {["p", "l", "a", "n", "e", "t"].map((ch, i) => (
+          <tspan key={i} fill={PLANET_COLORS[i]}>
+            {ch}
+          </tspan>
+        ))}
+      </text>
 
       {/* Cintillo rojo */}
-      <g>
-        <path d="M22 74 l10 -5 v16 l-10 -5 z" fill="#c1121f" />
-        <path d="M128 74 l-10 -5 v16 l10 -5 z" fill="#c1121f" />
-        <rect x="30" y="68" width="90" height="17" rx="4" fill="#e63946" />
-        <text
-          x="75"
-          y="80"
-          textAnchor="middle"
-          fontSize="8.5"
-          fontWeight="700"
-          fill="#ffffff"
-          fontFamily="var(--font-baloo), sans-serif"
-        >
-          Un mundo de diversión
-        </text>
-      </g>
+      <path d="M30 118 l14 -7 v22 l-14 -7 z" fill="#c1121f" />
+      <path d="M170 118 l-14 -7 v22 l14 -7 z" fill="#c1121f" />
+      <path
+        d="M40 112 Q100 122 160 112 L160 130 Q100 140 40 130 Z"
+        fill="#e63946"
+        stroke="#ffffff"
+        strokeWidth="2"
+      />
+      <text
+        x="100"
+        y="127"
+        textAnchor="middle"
+        fontSize="9.5"
+        fontWeight="700"
+        fill="#ffffff"
+        letterSpacing="0.5"
+        fontFamily="var(--font-baloo), sans-serif"
+      >
+        UN MUNDO DE DIVERSIÓN
+      </text>
     </svg>
   );
 }

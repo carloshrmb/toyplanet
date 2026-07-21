@@ -1,47 +1,52 @@
 import Logo from "@/components/ui/Logo";
-import Stars from "@/components/ui/Stars";
 import WaveDivider from "@/components/ui/WaveDivider";
 import { business, navLinks } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-space-950">
-      <WaveDivider fill="fill-space-950" flip className="-mt-px bg-white" />
-      <Stars className="opacity-40" />
+    <footer className="relative bg-cielo-700 text-white">
+      <WaveDivider fill="fill-cielo-700" flip className="-mt-px bg-white" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
+      <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-10 sm:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <div className="flex items-center gap-3">
-              <Logo className="h-14 w-auto" />
-              <span className="font-display text-xl font-bold text-white">{business.name}</span>
+            <div className="w-fit rounded-3xl bg-white/90 p-3">
+              <Logo className="h-20 w-auto" />
             </div>
-            <p className="mt-4 max-w-xs text-sm text-cielo-200">{business.slogan}</p>
+            <p className="mt-4 max-w-xs text-sm text-cielo-100">{business.slogan}</p>
           </div>
 
           <nav aria-label="Enlaces del sitio">
-            <h3 className="font-display text-lg font-bold text-white">Explora</h3>
+            <h3 className="font-display text-lg font-bold">Explora</h3>
             <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-cielo-200 transition-colors hover:text-star-400"
+                    className="text-sm text-cielo-100 transition-colors hover:text-star-400"
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="#festeja-sin-paquete"
+                  className="text-sm text-cielo-100 transition-colors hover:text-star-400"
+                >
+                  Festeja sin paquete
+                </a>
+              </li>
             </ul>
           </nav>
 
           <div>
-            <h3 className="font-display text-lg font-bold text-white">Contacto</h3>
-            <ul className="mt-4 space-y-2 text-sm text-cielo-200">
+            <h3 className="font-display text-lg font-bold">Contacto</h3>
+            <ul className="mt-4 space-y-2 text-sm text-cielo-100">
               <li>{business.address}</li>
               <li>
                 <a href={business.phoneHref} className="transition-colors hover:text-star-400">
-                  {business.phoneDisplay}
+                  Tel. y WhatsApp: {business.phoneDisplay}
                 </a>
               </li>
               <li>{business.schedule}</li>
@@ -55,11 +60,21 @@ export default function Footer() {
                   Instagram: @{business.instagram}
                 </a>
               </li>
+              <li>
+                <a
+                  href={business.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-star-400"
+                >
+                  Facebook: {business.facebookLabel}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-cielo-200/70">
+        <div className="mt-12 border-t border-white/15 pt-6 text-center text-xs text-cielo-100/80">
           <p>
             © {new Date().getFullYear()} {business.name}. Todos los derechos reservados.
           </p>

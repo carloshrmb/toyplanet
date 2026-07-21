@@ -13,6 +13,12 @@ const FacebookIcon = () => (
   </svg>
 );
 
+const WhatsAppIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+    <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.4.2-.8l.4-.5c.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9 1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z" />
+  </svg>
+);
+
 export default function Location() {
   return (
     <section id="ubicacion" className="bg-white py-20">
@@ -26,11 +32,11 @@ export default function Location() {
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Datos de contacto */}
           <div className="space-y-4">
-            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-100/40 p-6">
+            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-50 p-6">
               <span className="text-3xl" aria-hidden="true">📍</span>
               <div>
                 <h3 className="font-display text-lg font-bold text-ink-900">Dirección</h3>
-                <p className="mt-1 text-ink-600">{business.address}</p>
+                <p className="mt-1 text-ink-500">{business.address}</p>
                 <a
                   href={business.mapsLinkUrl}
                   target="_blank"
@@ -42,35 +48,45 @@ export default function Location() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-100/40 p-6">
+            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-50 p-6">
               <span className="text-3xl" aria-hidden="true">📞</span>
               <div>
-                <h3 className="font-display text-lg font-bold text-ink-900">Teléfono</h3>
+                <h3 className="font-display text-lg font-bold text-ink-900">
+                  Teléfono y WhatsApp
+                </h3>
                 <a
                   href={business.phoneHref}
                   className="mt-1 inline-block text-lg font-bold text-cielo-600 hover:underline"
                 >
                   {business.phoneDisplay}
                 </a>
-                <p className="mt-1 text-sm text-ink-600">
-                  Llámanos para reservar o resolver cualquier duda.
-                </p>
+                <div className="mt-3">
+                  <a
+                    href={business.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#25d366] px-4 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                  >
+                    <WhatsAppIcon />
+                    Escríbenos por WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-100/40 p-6">
+            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-50 p-6">
               <span className="text-3xl" aria-hidden="true">🕐</span>
               <div>
                 <h3 className="font-display text-lg font-bold text-ink-900">Horario</h3>
-                <p className="mt-1 text-ink-600">{business.schedule}</p>
+                <p className="mt-1 text-ink-500">{business.schedule}</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-100/40 p-6">
+            <div className="flex items-start gap-4 rounded-3xl border border-cielo-200 bg-cielo-50 p-6">
               <span className="text-3xl" aria-hidden="true">💬</span>
               <div>
                 <h3 className="font-display text-lg font-bold text-ink-900">Síguenos</h3>
-                <div className="mt-3 flex gap-3">
+                <div className="mt-3 flex flex-wrap gap-3">
                   <a
                     href={business.instagramUrl}
                     target="_blank"
@@ -86,7 +102,7 @@ export default function Location() {
                     className="flex items-center gap-2 rounded-full bg-cielo-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-cielo-600"
                   >
                     <FacebookIcon />
-                    Facebook
+                    {business.facebookLabel}
                   </a>
                 </div>
               </div>

@@ -1,30 +1,33 @@
 @import "tailwindcss";
 
 /*
-  Paleta Toy Planet — azul espacio como base ordenada,
-  naranja cálido para CTAs y morado/amarillo como acentos.
+  Paleta Toy Planet — azul cielo suave como color dominante,
+  naranja cálido para CTAs, morado suave y amarillo estrella
+  como acentos. El rojo queda reservado para el cintillo del logo.
 */
 @theme {
-  /* Azul espacio (fondos hero / footer) */
-  --color-space-950: #060f2e;
-  --color-space-900: #081a4a;
-  --color-space-800: #0e2a6b;
-  --color-space-700: #1a3a8f;
+  /* Azul cielo (base del sitio) */
+  --color-cielo-50: #f4fbff;
+  --color-cielo-100: #e6f5fd;
+  --color-cielo-200: #d0ecfa;
+  --color-cielo-300: #aedef6;
+  --color-cielo-400: #7cc8ef;
+  --color-cielo-500: #4fb3e8;
+  --color-cielo-600: #2e96cf;
+  --color-cielo-700: #1f6fa0;
 
-  /* Azul cielo (color de marca) */
-  --color-cielo-100: #e9f5ff;
-  --color-cielo-200: #cdeafd;
-  --color-cielo-300: #8fcdf9;
-  --color-cielo-500: #3fa9f5;
-  --color-cielo-600: #1b8fe0;
+  /* Tinta (texto sobre fondos claros) */
+  --color-ink-500: #4a6285;
+  --color-ink-900: #21395c;
 
   /* Morado suave (acento secundario) */
-  --color-grape-100: #efebff;
-  --color-grape-400: #a795f0;
-  --color-grape-500: #8e7ce8;
-  --color-grape-700: #5d4bb8;
+  --color-grape-100: #f0edfd;
+  --color-grape-400: #b3a6ef;
+  --color-grape-500: #9a8ce8;
+  --color-grape-700: #6a58c4;
 
   /* Naranja cálido (botones y CTAs) */
+  --color-sunset-100: #fff0e3;
   --color-sunset-400: #ffa25c;
   --color-sunset-500: #ff8a3d;
   --color-sunset-600: #f26e1d;
@@ -33,9 +36,9 @@
   --color-star-300: #ffe09a;
   --color-star-400: #ffd166;
 
-  /* Texto */
-  --color-ink-600: #4a5878;
-  --color-ink-900: #1e2a4a;
+  /* Rojo del cintillo (solo para el logo) */
+  --color-ribbon-500: #e63946;
+  --color-ribbon-700: #c1121f;
 
   /* Tipografías (definidas en layout.tsx con next/font) */
   --font-display: var(--font-baloo);
@@ -49,19 +52,19 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: var(--color-cielo-100);
   color: var(--color-ink-900);
   font-family: var(--font-nunito), system-ui, sans-serif;
 }
 
-/* Astronauta flotando (elemento firma del sitio) */
+/* Astronauta flotando (mascota recurrente del sitio) */
 @keyframes float {
   0%,
   100% {
     transform: translateY(0) rotate(-4deg);
   }
   50% {
-    transform: translateY(-16px) rotate(4deg);
+    transform: translateY(-14px) rotate(4deg);
   }
 }
 
@@ -69,19 +72,23 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Parpadeo suave de las estrellas del cielo espacial */
+/* Destellos suaves (estrellitas decorativas sobre el cielo) */
 @keyframes twinkle {
   0%,
   100% {
-    opacity: 0.25;
+    opacity: 0.35;
+    transform: scale(0.9);
   }
   50% {
     opacity: 1;
+    transform: scale(1.1);
   }
 }
 
 .animate-twinkle {
-  animation: twinkle 3.2s ease-in-out infinite;
+  animation: twinkle 3.4s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 @media (prefers-reduced-motion: reduce) {

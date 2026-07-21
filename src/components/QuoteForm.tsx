@@ -5,28 +5,44 @@ import Astronaut from "@/components/ui/Astronaut";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { business } from "@/data/site";
 
+const partyTypes = [
+  "Evento con paquete",
+  "Festeja sin paquete",
+  "Visita general",
+  "Aún no lo decido",
+];
+
 type FormData = {
   name: string;
   phone: string;
   date: string;
+  partyType: string;
   kids: string;
   message: string;
 };
 
-const initialForm: FormData = { name: "", phone: "", date: "", kids: "", message: "" };
+const initialForm: FormData = {
+  name: "",
+  phone: "",
+  date: "",
+  partyType: partyTypes[0],
+  kids: "",
+  message: "",
+};
 
 /**
- * Formulario de cotización. Por ahora solo muestra una
- * confirmación visual; cuando exista backend, conectar el
- * handleSubmit a la API o servicio de correo correspondiente.
+ * Formulario de cotización. Por ahora solo muestra una confirmación
+ * visual; cuando exista backend, conectar handleSubmit a la API o
+ * servicio de correo correspondiente.
  */
 export default function QuoteForm() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [sent, setSent] = useState(false);
 
-  const update = (field: keyof FormData) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setForm({ ...form, [field]: e.target.value });
+  const update =
+    (field: keyof FormData) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      setForm({ ...form, [field]: e.target.value });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -34,10 +50,10 @@ export default function QuoteForm() {
   };
 
   const inputStyles =
-    "w-full rounded-2xl border border-cielo-200 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-600/50 outline-none transition-colors focus:border-cielo-500 focus:ring-2 focus:ring-cielo-300";
+    "w-full rounded-2xl border border-cielo-200 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-500/50 outline-none transition-colors focus:border-cielo-500 focus:ring-2 focus:ring-cielo-300";
 
   return (
-    <section id="cotizacion" className="bg-cielo-100/60 py-20">
+    <section id="cotizacion" className="bg-cielo-200 py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <SectionHeading
           kicker="Cotización"
@@ -46,7 +62,7 @@ export default function QuoteForm() {
         />
 
         {sent ? (
-          /* Confirmación visual con el astronauta como easter egg */
+          /* Confirmación visual con la mascota astronauta */
           <div className="rounded-3xl bg-white p-10 text-center shadow-xl">
             <div className="mx-auto w-fit animate-float">
               <Astronaut className="h-40 w-40" />
@@ -54,7 +70,7 @@ export default function QuoteForm() {
             <h3 className="mt-6 font-display text-2xl font-bold text-ink-900">
               ¡Misión recibida, {form.name.split(" ")[0] || "explorador"}! 🚀
             </h3>
-            <p className="mt-3 text-ink-600">
+            <p className="mt-3 text-ink-500">
               Gracias por tu interés. Muy pronto nos comunicaremos contigo
               {form.phone && (
                 <>
@@ -64,10 +80,15 @@ export default function QuoteForm() {
               )}{" "}
               para confirmar los detalles de tu evento.
             </p>
-            <p className="mt-2 text-ink-600">
-              ¿Tienes prisa? Llámanos al{" "}
-              <a href={business.phoneHref} className="font-bold text-cielo-600 hover:underline">
-                {business.phoneDisplay}
+            <p className="mt-2 text-ink-500">
+              ¿Tienes prisa? Escríbenos por{" "}
+              <a
+                href={business.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-cielo-600 hover:underline"
+              >
+                WhatsApp al {business.phoneDisplay}
               </a>
               .
             </p>
@@ -77,7 +98,7 @@ export default function QuoteForm() {
                 setForm(initialForm);
                 setSent(false);
               }}
-              className="mt-8 rounded-full bg-cielo-100 px-6 py-3 font-bold text-cielo-600 transition-colors hover:bg-cielo-200"
+              className="mt-8 rounded-full bg-cielo-100 px-6 py-3 font-bold text-cielo-700 transition-colors hover:bg-cielo-200"
             >
               Enviar otra solicitud
             </button>
@@ -129,7 +150,25 @@ export default function QuoteForm() {
                 />
               </div>
 
-              <div className="sm:col-span-2">
+              <div>
+                <label htmlFor="partyType" className="mb-1.5 block font-bold text-ink-900">
+                  Tipo de festejo
+                </label>
+                <select
+                  id="partyType"
+                  value={form.partyType}
+                  onChange={update("partyType")}
+                  className={inputStyles}
+                >
+                  {partyTypes.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
                 <label htmlFor="kids" className="mb-1.5 block font-bold text-ink-900">
                   Número de niños
                 </label>
@@ -147,12 +186,12 @@ export default function QuoteForm() {
 
               <div className="sm:col-span-2">
                 <label htmlFor="message" className="mb-1.5 block font-bold text-ink-900">
-                  Mensaje <span className="font-normal text-ink-600">(opcional)</span>
+                  Mensaje <span className="font-normal text-ink-500">(opcional)</span>
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  placeholder="Cuéntanos sobre tu evento: temática, paquete de interés, dudas..."
+                  placeholder="Cuéntanos sobre tu evento: paquete de interés, temática, dudas..."
                   value={form.message}
                   onChange={update("message")}
                   className={inputStyles}
@@ -162,15 +201,20 @@ export default function QuoteForm() {
 
             <button
               type="submit"
-              className="mt-8 w-full rounded-full bg-sunset-500 px-8 py-4 text-lg font-bold text-white shadow-lg shadow-sunset-600/25 transition-all hover:bg-sunset-600 hover:shadow-xl"
+              className="mt-8 w-full rounded-full bg-sunset-500 px-8 py-4 text-lg font-bold text-white shadow-lg shadow-sunset-500/30 transition-all hover:bg-sunset-600 hover:shadow-xl"
             >
               Enviar solicitud de cotización 🚀
             </button>
 
-            <p className="mt-4 text-center text-xs text-ink-600">
-              También puedes llamarnos directamente al{" "}
-              <a href={business.phoneHref} className="font-bold text-cielo-600 hover:underline">
-                {business.phoneDisplay}
+            <p className="mt-4 text-center text-xs text-ink-500">
+              También puedes escribirnos por{" "}
+              <a
+                href={business.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-cielo-600 hover:underline"
+              >
+                WhatsApp al {business.phoneDisplay}
               </a>
             </p>
           </form>

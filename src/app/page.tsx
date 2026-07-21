@@ -1,9 +1,11 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Attractions from "@/components/Attractions";
-import Pricing from "@/components/Pricing";
-import FoodMenu from "@/components/FoodMenu";
+import Facilities from "@/components/Facilities";
+import Access from "@/components/Access";
+import EventPackages from "@/components/EventPackages";
+import NoPackageParty from "@/components/NoPackageParty";
+import EventMenu from "@/components/EventMenu";
 import QuoteForm from "@/components/QuoteForm";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
@@ -15,9 +17,11 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Attractions />
-        <Pricing />
-        <FoodMenu />
+        <Facilities />
+        <Access />
+        <EventPackages />
+        <NoPackageParty />
+        <EventMenu />
         <QuoteForm />
         <Location />
       </main>

@@ -5,20 +5,17 @@ import Logo from "@/components/ui/Logo";
 import { navLinks } from "@/data/site";
 
 /**
- * Header sticky con navegación por anclas y menú hamburguesa
- * en mobile. El CTA de cotización siempre queda a la vista.
+ * Header sticky con el logo recreado, navegación por anclas y
+ * menú hamburguesa en mobile. El CTA de cotización siempre visible.
  */
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-space-900/95 shadow-lg shadow-space-950/30 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6">
-        <a href="#inicio" className="flex items-center gap-3" aria-label="Toy Planet — inicio">
-          <Logo className="h-12 w-auto sm:h-14" />
-          <span className="font-display text-xl font-bold text-white sm:text-2xl">
-            Toy Planet
-          </span>
+    <header className="sticky top-0 z-50 bg-white/95 shadow-md shadow-cielo-300/30 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 sm:px-6">
+        <a href="#inicio" aria-label="Toy Planet — inicio">
+          <Logo className="h-16 w-auto sm:h-[4.5rem]" />
         </a>
 
         {/* Navegación de escritorio */}
@@ -27,7 +24,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-bold text-cielo-200 transition-colors hover:text-star-400"
+              className="text-sm font-bold text-ink-900 transition-colors hover:text-cielo-600"
             >
               {link.label}
             </a>
@@ -46,7 +43,7 @@ export default function Header() {
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          className="rounded-lg p-2 text-white lg:hidden"
+          className="rounded-lg p-2 text-ink-900 lg:hidden"
         >
           <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             {open ? (
@@ -61,7 +58,7 @@ export default function Header() {
       {/* Menú desplegable mobile */}
       {open && (
         <nav
-          className="border-t border-white/10 bg-space-900 px-4 pb-6 pt-2 lg:hidden"
+          className="border-t border-cielo-200 bg-white px-4 pb-6 pt-2 lg:hidden"
           aria-label="Navegación móvil"
         >
           {navLinks.map((link) => (
@@ -69,7 +66,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block rounded-lg px-3 py-3 font-bold text-cielo-200 transition-colors hover:bg-white/5 hover:text-star-400"
+              className="block rounded-lg px-3 py-3 font-bold text-ink-900 transition-colors hover:bg-cielo-100 hover:text-cielo-600"
             >
               {link.label}
             </a>
