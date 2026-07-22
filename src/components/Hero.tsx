@@ -1,8 +1,7 @@
-import Astronaut from "@/components/ui/Astronaut";
-import PhotoCard from "@/components/ui/PhotoCard";
+import HeroScene from "@/components/ui/HeroScene";
 import Sparkles from "@/components/ui/Sparkles";
 import WaveDivider from "@/components/ui/WaveDivider";
-import { business, heroPhoto } from "@/data/site";
+import { business } from "@/data/site";
 
 export default function Hero() {
   return (
@@ -56,18 +55,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Foto real de la fachada + astronauta (mascota firma) */}
-        <div className="relative mx-auto w-64 sm:w-72 lg:w-80">
-          <PhotoCard
-            photo={heroPhoto}
-            rotate="rotate-2"
-            priority
-            sizes="(max-width: 1024px) 288px, 320px"
-          />
-          <div className="absolute -bottom-10 -left-16 animate-float sm:-left-20">
-            <Astronaut className="h-32 w-32 drop-shadow-xl sm:h-40 sm:w-40" />
-          </div>
-        </div>
+        {/* Escena ilustrada: planeta con anillos + astronauta (sin foto real) */}
+        <HeroScene className="mx-auto w-full max-w-md" />
       </div>
 
       <WaveDivider fill="fill-white" />

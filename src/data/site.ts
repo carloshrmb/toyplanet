@@ -12,7 +12,7 @@ export const business = {
   phoneDisplay: "667 332 6252",
   phoneHref: "tel:+526673326252",
   whatsappUrl: "https://wa.me/526673326252",
-  schedule: "Todos los días · 12:00 PM – 8:00 PM",
+  schedule: "Todos los días · 11:00 AM – 6:30 PM",
   instagram: "toyplanetcln",
   instagramUrl: "https://www.instagram.com/toyplanetcln",
   facebookLabel: "toy planet",
@@ -168,8 +168,7 @@ export const eventPackages: EventPackage[] = [
   },
   {
     name: "Paquete Supreme",
-    price: "$22,000*",
-    priceNote: "* Precio a confirmar",
+    price: "$22,000",
     includes: [
       "35 niños + 20 adultos",
       "Acceso 3 horas",

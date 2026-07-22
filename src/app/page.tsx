@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Facilities from "@/components/Facilities";
 import Access from "@/components/Access";
+import MenuGeneral from "@/components/MenuGeneral";
 import EventPackages from "@/components/EventPackages";
 import NoPackageParty from "@/components/NoPackageParty";
 import EventMenu from "@/components/EventMenu";
@@ -19,6 +20,7 @@ export default function Home() {
         <About />
         <Facilities />
         <Access />
+        <MenuGeneral />
         <EventPackages />
         <NoPackageParty />
         <EventMenu />

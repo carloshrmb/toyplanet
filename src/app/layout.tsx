@@ -18,7 +18,7 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "Toy Planet | Salón de juegos y eventos infantiles en Culiacán",
   description:
-    "¡Niños en un mundo de diversión! Salón de juegos y eventos infantiles para niños de 1 a 12 años en Las Quintas, Culiacán. Albercas de pelotas, resbaladillas, zona arcade y paquetes de fiesta. Abierto todos los días de 12:00 a 8:00 PM.",
+    "¡Niños en un mundo de diversión! Salón de juegos y eventos infantiles para niños de 1 a 12 años en Las Quintas, Culiacán. Albercas de pelotas, resbaladillas, zona arcade y paquetes de fiesta. Abierto todos los días de 11:00 AM a 6:30 PM.",
   keywords: [
     "salón de fiestas infantiles Culiacán",
     "juegos infantiles Culiacán",
