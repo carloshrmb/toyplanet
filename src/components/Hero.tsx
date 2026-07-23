@@ -4,12 +4,12 @@ import WaveDivider from "@/components/ui/WaveDivider";
 import { business } from "@/data/site";
 
 export default function Hero() {
-  // -mt-20 extiende el fondo azul por detrás del header (que mide h-20),
-  // para que no haya corte: el header de vidrio flota sobre este mismo azul.
+  // -mt-24 (96px) extiende el fondo azul por detrás del header flotante
+  // (pt-4 + barra h-20 = 96px), para que el azul se vea alrededor del header.
   return (
     <section
       id="inicio"
-      className="relative -mt-20 overflow-hidden bg-gradient-to-b from-cielo-300 via-cielo-200 to-cielo-100"
+      className="relative -mt-24 overflow-hidden bg-gradient-to-b from-cielo-300 via-cielo-200 to-cielo-100"
     >
       <Sparkles />
 
@@ -19,7 +19,7 @@ export default function Hero() {
         className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-star-300/50 blur-2xl"
       />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-10 pt-32 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:pb-20 lg:pt-40">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-10 pt-36 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:pb-20 lg:pt-40">
         <div className="text-center lg:text-left">
           <span className="inline-block rounded-full bg-white/70 px-4 py-1.5 text-sm font-bold text-cielo-700">
             🪐 Salón de juegos y eventos infantiles · Culiacán

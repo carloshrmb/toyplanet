@@ -47,8 +47,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* Compensa el header sticky al navegar con anclas */
-  scroll-padding-top: 5.5rem;
+  /* Compensa el header flotante (~96px) al navegar con anclas */
+  scroll-padding-top: 7rem;
 }
 
 body {
