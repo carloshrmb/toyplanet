@@ -185,6 +185,39 @@ export const packageExtras = [
   { concept: "Adulto adicional", price: "$300" },
 ];
 
+/* ---------- Precios numéricos (para la calculadora de cotización) ---------- */
+
+export const pricing = {
+  accessKid: 280,
+  accessAdult: 50,
+  sock: 60,
+  noPackageFee: 300,
+  extraKid: 400,
+  extraAdult: 300,
+};
+
+export type CalcPackage = {
+  id: string;
+  name: string;
+  price: number;
+  includedKids: number;
+  includedAdults: number;
+  highlight?: boolean;
+};
+
+export const calculatorPackages: CalcPackage[] = [
+  { id: "basico", name: "Paquete Básico", price: 7750, includedKids: 15, includedAdults: 5 },
+  {
+    id: "super",
+    name: "Paquete Súper",
+    price: 13000,
+    includedKids: 20,
+    includedAdults: 10,
+    highlight: true,
+  },
+  { id: "supreme", name: "Paquete Supreme", price: 22000, includedKids: 35, includedAdults: 20 },
+];
+
 /** Qué SÍ se puede ingresar a un evento con paquete */
 export const allowedItems = [
   {

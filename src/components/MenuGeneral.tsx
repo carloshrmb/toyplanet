@@ -42,8 +42,8 @@ export default function MenuGeneral() {
           <Image
             src={MENU_SRC}
             alt="Menú de Toy Planet para visitas: snacks, baguettes, ensaladas, alitas y boneless, hamburguesas, pizza, combos y bebidas con precios"
-            width={1170}
-            height={960}
+            width={1131}
+            height={948}
             sizes="(max-width: 1024px) 100vw, 960px"
             className="h-auto w-full rounded-2xl"
           />
@@ -83,8 +83,8 @@ export default function MenuGeneral() {
           <Image
             src={MENU_SRC}
             alt="Menú de Toy Planet ampliado"
-            width={1170}
-            height={960}
+            width={1131}
+            height={948}
             sizes="100vw"
             className="max-h-[90vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
             onClick={(e) => e.stopPropagation()}

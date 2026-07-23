@@ -9,6 +9,12 @@ export default function Hero() {
       id="inicio"
       className="relative overflow-hidden bg-gradient-to-b from-cielo-300 via-cielo-200 to-cielo-100"
     >
+      {/* Transición gradual desde el header blanco hacia el azul del hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent sm:h-32"
+      />
+
       <Sparkles />
 
       {/* Sol suave decorativo */}
