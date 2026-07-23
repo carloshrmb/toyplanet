@@ -12,10 +12,10 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 shadow-md shadow-cielo-300/30 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-white/40 bg-white/70 shadow-sm shadow-cielo-500/10 backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <a href="#inicio" aria-label="Toy Planet — inicio">
-          <Logo className="h-16 w-auto sm:h-[4.5rem]" />
+          <Logo className="h-16 w-auto" />
         </a>
 
         {/* Navegación de escritorio */}
@@ -58,7 +58,7 @@ export default function Header() {
       {/* Menú desplegable mobile */}
       {open && (
         <nav
-          className="border-t border-cielo-200 bg-white px-4 pb-6 pt-2 lg:hidden"
+          className="border-t border-white/40 bg-white/85 px-4 pb-6 pt-2 backdrop-blur-md lg:hidden"
           aria-label="Navegación móvil"
         >
           {navLinks.map((link) => (

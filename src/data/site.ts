@@ -336,6 +336,6 @@ export const navLinks = [
   { label: "Instalaciones", href: "#instalaciones" },
   { label: "Acceso", href: "#acceso" },
   { label: "Paquetes", href: "#paquetes" },
-  { label: "Menú", href: "#menu" },
+  { label: "Menú", href: "#menu-general" },
   { label: "Ubicación", href: "#ubicacion" },
 ];
