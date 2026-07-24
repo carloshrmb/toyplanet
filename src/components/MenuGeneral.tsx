@@ -25,12 +25,7 @@ export default function MenuGeneral() {
   return (
     <section id="menu-general" className="bg-cielo-100 py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeading
-          tone="sunset"
-          kicker="Menú del día"
-          title="Nuestro menú"
-          subtitle="Disponible para tu visita al salón de juegos: snacks, baguettes, alitas, hamburguesas, pizza y bebidas."
-        />
+        <SectionHeading tone="sunset" kicker="Menú del día" title="Nuestro menú" />
 
         {/* Imagen del menú (clic para ampliar) */}
         <button
