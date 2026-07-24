@@ -76,7 +76,6 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {business.name}. Todos los derechos reservados.
           </p>
-          <p className="mt-1">Sitio demostrativo — propuesta de diseño web.</p>
         </div>
       </div>
     </footer>
