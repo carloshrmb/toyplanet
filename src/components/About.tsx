@@ -10,19 +10,19 @@ const highlights: {
   {
     emoji: "🎪",
     title: "Juegos para todas las edades",
-    text: "Albercas de pelotas, resbaladillas, túneles, botes de agua y zona arcade para peques de 1 a 12 años.",
+    text: "Resbaladilla gigante, albercas de pelotas, barquitos, trampolines, área maternal y zona arcade para niños y niñas desde 1 a 12 años.",
     color: "blue",
   },
   {
     emoji: "🛡️",
     title: "Diversión segura",
-    text: "Áreas diseñadas para niños y calcetines antiderrapantes obligatorios para jugar.",
+    text: "Instalaciones diseñadas para que jueguen en un entorno cómodo y seguro.",
     color: "green",
   },
   {
     emoji: "🎂",
     title: "Eventos a tu medida",
-    text: "Paquetes completos con anfitrión y comida, o un festejo sencillo sin reservación.",
+    text: "Paquetes todo incluido, eventos privados y acceso sin reservación para celebrar a tu manera.",
     color: "yellow",
   },
   {
