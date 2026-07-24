@@ -12,11 +12,7 @@ export default function Facilities() {
   return (
     <section id="instalaciones" className="bg-cielo-100 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading
-          kicker="Instalaciones"
-          title="Explora nuestro planeta de juegos"
-          subtitle="Descubre todo lo que te espera"
-        />
+        <SectionHeading kicker="Instalaciones" title="Descubre todo lo que te espera" />
       </div>
 
       {/* Carril deslizable a ancho completo para mejor gesto de swipe */}
