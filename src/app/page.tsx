@@ -22,8 +22,8 @@ export default function Home() {
         <Access />
         <MenuGeneral />
         <EventPackages />
-        <NoPackageParty />
         <EventMenu />
+        <NoPackageParty />
         <QuoteForm />
         <Location />
       </main>

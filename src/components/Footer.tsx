@@ -10,9 +10,7 @@ export default function Footer() {
       <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-10 sm:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <div className="w-fit rounded-3xl bg-white/90 p-3">
-              <Logo className="h-20 w-auto" />
-            </div>
+            <Logo className="h-24 w-auto" />
             <p className="mt-4 max-w-xs text-sm text-cielo-100">{business.slogan}</p>
           </div>
 

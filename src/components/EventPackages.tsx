@@ -17,8 +17,8 @@ export default function EventPackages() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           kicker="Paquetes de eventos"
-          title="Celebra su cumpleaños en el planeta Toy"
-          subtitle="Elige el paquete que mejor le quede a tu fiesta; nosotros ponemos el anfitrión, la comida y la diversión."
+          title="Celebra su cumpleaños con nosotros."
+          subtitle="Elige el paquete que mejor se ajuste a tus necesidades. Nosotros nos encargamos de la diversión :)"
         />
 
         {/* Lo que incluyen los 3 paquetes */}
@@ -150,7 +150,10 @@ export default function EventPackages() {
           </div>
 
           <div className="rounded-3xl bg-white p-7 shadow-lg">
-            <h3 className="font-display text-xl font-bold text-ink-900">
+            <p className="text-sm font-bold uppercase tracking-wide text-ribbon-500">
+              Restringimos el ingreso de:
+            </p>
+            <h3 className="mt-1 font-display text-xl font-bold text-ink-900">
               🚫 Qué no está permitido ingresar
             </h3>
             <p className="mt-1 text-sm text-ink-500">Aplica con o sin paquete de evento.</p>

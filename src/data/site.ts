@@ -122,7 +122,7 @@ export const accessPricing = [
 ];
 
 export const noReentryNotice =
-  "No hay reingresos: en caso de salir de las instalaciones, se volverá a cobrar el acceso.";
+  "No hay reingresos: tu acceso es válido para una sola entrada.";
 
 /* ---------- Paquetes de eventos ---------- */
 
@@ -261,9 +261,9 @@ export const allowedItemsNote =
 
 /** Qué NO se permite ingresar (ni con paquete ni sin paquete) */
 export const notAllowedItems = [
-  "Bebidas y alimentos externos (botellas de agua, jugos, aguas de sabor)",
-  "Alimentos preparados externos (tacos, sushi, tortas)",
-  "Piñatas — no hay espacio para partirlas; solo se permiten como decoración",
+  "Bebidas y alimentos externos (botellas de agua, jugos, agua de sabor y cualquier tipo de bebida ajena al establecimiento)",
+  "Alimentos preparados externos (Alimentos preparados del exterior: tacos, sushi, ensaladas y similares)",
+  "Piñatas. Pueden ingresarse -únicamente- como elemento decorativo.",
   "Helados, bolis o raspados externos",
   "Cañones de confetti o serpentina",
   "Equipos de sonido o visuales externos",

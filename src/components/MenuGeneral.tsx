@@ -9,7 +9,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
  * Muestra la imagen completa del menú y permite ampliarla con un clic
  * en un lightbox sencillo.
  */
-const MENU_SRC = "/images/menu-general.png";
+const MENU_SRC = "/images/menu-general-2.png";
 
 export default function MenuGeneral() {
   const [zoom, setZoom] = useState(false);
@@ -42,8 +42,8 @@ export default function MenuGeneral() {
           <Image
             src={MENU_SRC}
             alt="Menú de Toy Planet para visitas: snacks, baguettes, ensaladas, alitas y boneless, hamburguesas, pizza, combos y bebidas con precios"
-            width={1131}
-            height={948}
+            width={1800}
+            height={1391}
             sizes="(max-width: 1024px) 100vw, 960px"
             className="h-auto w-full rounded-2xl"
           />
@@ -83,8 +83,8 @@ export default function MenuGeneral() {
           <Image
             src={MENU_SRC}
             alt="Menú de Toy Planet ampliado"
-            width={1131}
-            height={948}
+            width={1800}
+            height={1391}
             sizes="100vw"
             className="max-h-[90vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
             onClick={(e) => e.stopPropagation()}
