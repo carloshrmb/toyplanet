@@ -1,20 +1,20 @@
 import Astronaut from "@/components/ui/Astronaut";
+import Rocket from "@/components/ui/Rocket";
 
 /**
- * Escena ilustrada del hero: un planeta con anillos, lunas y
- * estrellas, con la mascota astronauta flotando al frente.
- * Todo es vectorial (sin fotografías), acorde a la línea espacial
- * de la marca. Reutiliza el componente Astronaut existente.
+ * Escena espacial del hero: el cohete es el protagonista al frente
+ * (grande, inclinado, flotando con flama encendida), el planeta queda
+ * de fondo abajo-izquierda con su órbita, y el astronauta acompaña más
+ * pequeño a un lado. Todo vectorial. El movimiento es suave y en loop.
  */
 
-// Estrellitas de 4 puntas distribuidas alrededor del planeta
+// Estrellitas de 4 puntas distribuidas alrededor de la escena
 const STARS = [
-  { x: 40, y: 60, s: 1.1 },
-  { x: 330, y: 48, s: 1.4 },
-  { x: 360, y: 150, s: 0.9 },
-  { x: 60, y: 200, s: 0.8 },
-  { x: 300, y: 250, s: 1.1 },
-  { x: 24, y: 130, s: 0.7 },
+  { x: 350, y: 60, s: 1.3 },
+  { x: 372, y: 150, s: 0.9 },
+  { x: 40, y: 90, s: 1.0 },
+  { x: 300, y: 300, s: 1.1 },
+  { x: 24, y: 240, s: 0.8 },
 ];
 
 function Star({ x, y, s }: { x: number; y: number; s: number }) {
@@ -32,7 +32,8 @@ function Star({ x, y, s }: { x: number; y: number; s: number }) {
 export default function HeroScene({ className = "" }: { className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      <svg viewBox="0 0 400 430" className="h-auto w-full" role="img" aria-label="Planeta y astronauta de Toy Planet">
+      {/* Fondo vectorial: planeta + órbita + estrellas (define la altura) */}
+      <svg viewBox="0 0 400 440" className="block h-auto w-full" aria-hidden="true">
         <defs>
           <radialGradient id="planetFill" cx="38%" cy="34%" r="75%">
             <stop offset="0%" stopColor="#aedef6" />
@@ -46,59 +47,46 @@ export default function HeroScene({ className = "" }: { className?: string }) {
           </linearGradient>
         </defs>
 
-        {/* Estrellas de fondo */}
         {STARS.map((p, i) => (
           <Star key={i} {...p} />
         ))}
 
-        {/* Anillo (mitad trasera, detrás del planeta) */}
-        <g transform="rotate(-18 200 185)">
-          <path
-            d="M56 185 A144 40 0 0 1 344 185"
+        {/* Órbita del planeta */}
+        <g transform="rotate(-16 108 360)">
+          <ellipse
+            cx="108"
+            cy="360"
+            rx="140"
+            ry="42"
             fill="none"
             stroke="url(#ringFill)"
-            strokeWidth="15"
-            strokeLinecap="round"
-            opacity="0.85"
+            strokeWidth="6"
+            opacity="0.55"
           />
         </g>
 
-        {/* Planeta */}
-        <circle cx="200" cy="185" r="92" fill="url(#planetFill)" />
-        {/* Cráteres y detalles de superficie */}
-        <ellipse cx="168" cy="150" rx="22" ry="14" fill="#8fd3ff" opacity="0.55" />
-        <ellipse cx="232" cy="205" rx="30" ry="18" fill="#2e96cf" opacity="0.5" />
-        <circle cx="240" cy="140" r="10" fill="#8fd3ff" opacity="0.5" />
-        <circle cx="170" cy="210" r="7" fill="#8fd3ff" opacity="0.5" />
-        {/* Brillo superior */}
-        <path
-          d="M150 120 Q170 100 200 100"
-          stroke="#eaf7ff"
-          strokeWidth="7"
-          strokeLinecap="round"
-          fill="none"
-          opacity="0.7"
-        />
+        {/* Planeta (de fondo, abajo-izquierda) */}
+        <circle cx="108" cy="362" r="66" fill="url(#planetFill)" />
+        <ellipse cx="86" cy="336" rx="16" ry="10" fill="#8fd3ff" opacity="0.55" />
+        <ellipse cx="126" cy="382" rx="22" ry="13" fill="#2e96cf" opacity="0.5" />
+        <circle cx="132" cy="336" r="7" fill="#8fd3ff" opacity="0.5" />
 
-        {/* Anillo (mitad delantera, sobre el planeta) */}
-        <g transform="rotate(-18 200 185)">
-          <path
-            d="M56 185 A144 40 0 0 0 344 185"
-            fill="none"
-            stroke="url(#ringFill)"
-            strokeWidth="15"
-            strokeLinecap="round"
-          />
-        </g>
-
-        {/* Lunas */}
-        <circle cx="330" cy="120" r="13" fill="#ffd166" stroke="#fff" strokeWidth="2" />
-        <circle cx="70" cy="250" r="10" fill="#ff8a3d" stroke="#fff" strokeWidth="2" />
+        {/* Luna */}
+        <circle cx="356" cy="118" r="12" fill="#ffd166" stroke="#fff" strokeWidth="2" />
       </svg>
 
-      {/* Astronauta flotando al frente (mascota firma) */}
-      <div className="absolute bottom-0 left-2 animate-float sm:left-6">
-        <Astronaut className="h-36 w-36 drop-shadow-xl sm:h-44 sm:w-44" />
+      {/* Cohete protagonista: inclinación (rotate) + flotación (float) anidadas */}
+      <div className="absolute left-[27%] top-[1%] w-[47%]">
+        <div className="rotate-[12deg]">
+          <div className="animate-float-rocket">
+            <Rocket className="w-full drop-shadow-xl" />
+          </div>
+        </div>
+      </div>
+
+      {/* Astronauta acompañante (más pequeño, a un lado) */}
+      <div className="absolute bottom-[7%] right-[1%] w-[27%] animate-float">
+        <Astronaut className="w-full drop-shadow-lg" />
       </div>
     </div>
   );

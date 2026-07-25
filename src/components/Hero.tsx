@@ -1,7 +1,15 @@
 import HeroScene from "@/components/ui/HeroScene";
-import Sparkles from "@/components/ui/Sparkles";
+import StarField from "@/components/ui/StarField";
 import WaveDivider from "@/components/ui/WaveDivider";
 import { business } from "@/data/site";
+
+// Accesos rápidos del hero (texto simple, scroll suave por ancla)
+const quickLinks = [
+  { label: "Instalaciones", href: "#instalaciones" },
+  { label: "Paquetes", href: "#paquetes" },
+  { label: "Menú", href: "#menu-general" },
+  { label: "Ubicación", href: "#ubicacion" },
+];
 
 export default function Hero() {
   // -mt-24 (96px) extiende el fondo azul por detrás del header flotante
@@ -11,7 +19,8 @@ export default function Hero() {
       id="inicio"
       className="relative -mt-24 overflow-hidden bg-gradient-to-b from-cielo-300 via-cielo-200 to-cielo-100"
     >
-      <Sparkles />
+      {/* Puntos blancos titilando en la parte superior */}
+      <StarField />
 
       {/* Sol suave decorativo */}
       <div
@@ -21,10 +30,24 @@ export default function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-10 pt-36 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:pb-20 lg:pt-40">
         <div className="text-center lg:text-left">
-          <span className="inline-block rounded-full bg-white/70 px-4 py-1.5 text-sm font-bold text-cielo-700">
+          {/* Accesos rápidos (texto simple, sin caja) */}
+          <nav
+            aria-label="Accesos rápidos"
+            className="mb-5 flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm font-bold text-cielo-700 lg:justify-start"
+          >
+            {quickLinks.map((link) => (
+              <a key={link.href} href={link.href} className="transition-colors hover:text-sunset-600">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Badge de categoría como texto simple (sin pill) */}
+          <p className="text-sm font-bold text-cielo-700">
             🪐 Salón de juegos y eventos infantiles · Culiacán
-          </span>
-          <h1 className="mt-6 font-display text-4xl font-extrabold leading-tight text-ink-900 sm:text-5xl lg:text-6xl">
+          </p>
+
+          <h1 className="mt-4 font-display text-4xl font-extrabold leading-tight text-ink-900 sm:text-5xl lg:text-6xl">
             ¡Niños en un mundo de <span className="text-sunset-500">diversión!</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink-500 lg:mx-0">
@@ -49,15 +72,15 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Datos rápidos que los papás buscan primero */}
-          <div className="mt-10 flex flex-wrap justify-center gap-3 text-sm font-bold text-ink-900 lg:justify-start">
-            <span className="rounded-full bg-white/70 px-4 py-2">🕐 {business.schedule}</span>
-            <span className="rounded-full bg-white/70 px-4 py-2">🧒 Niños de {business.ages}</span>
-            <span className="rounded-full bg-white/70 px-4 py-2">📍 Las Quintas, Culiacán</span>
+          {/* Datos rápidos como texto simple (sin cajitas) */}
+          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-bold text-ink-900 lg:justify-start">
+            <span>🕐 {business.schedule}</span>
+            <span>🧒 Niños de {business.ages}</span>
+            <span>📍 Las Quintas, Culiacán</span>
           </div>
         </div>
 
-        {/* Escena ilustrada: planeta con anillos + astronauta (sin foto real) */}
+        {/* Escena espacial: cohete protagonista + planeta + astronauta */}
         <HeroScene className="mx-auto w-full max-w-md" />
       </div>
 

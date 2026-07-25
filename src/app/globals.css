@@ -91,9 +91,53 @@ body {
   transform-box: fill-box;
 }
 
+/* Cohete: flotación suave en loop (desincronizada del astronauta) */
+@keyframes float-rocket {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(3deg);
+  }
+}
+
+.animate-float-rocket {
+  animation: float-rocket 7s ease-in-out infinite;
+}
+
+/* Flama del cohete: parpadeo tipo fuego encendido */
+@keyframes flame {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+    opacity: 0.9;
+  }
+  25% {
+    transform: scaleY(0.82) scaleX(1.06);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1.14) scaleX(0.92);
+    opacity: 0.8;
+  }
+  75% {
+    transform: scaleY(0.92) scaleX(1.03);
+    opacity: 1;
+  }
+}
+
+.animate-flame {
+  animation: flame 0.5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: top;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
-  .animate-twinkle {
+  .animate-twinkle,
+  .animate-float-rocket,
+  .animate-flame {
     animation: none;
   }
 }
