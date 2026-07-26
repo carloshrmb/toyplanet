@@ -3,21 +3,13 @@ import StarField from "@/components/ui/StarField";
 import WaveDivider from "@/components/ui/WaveDivider";
 import { business } from "@/data/site";
 
-// Accesos rápidos del hero (texto simple, scroll suave por ancla)
-const quickLinks = [
-  { label: "Instalaciones", href: "#instalaciones" },
-  { label: "Paquetes", href: "#paquetes" },
-  { label: "Menú", href: "#menu-general" },
-  { label: "Ubicación", href: "#ubicacion" },
-];
-
 export default function Hero() {
   // -mt-24 (96px) extiende el fondo azul por detrás del header flotante
   // (pt-4 + barra h-20 = 96px), para que el azul se vea alrededor del header.
   return (
     <section
       id="inicio"
-      className="relative -mt-24 overflow-hidden bg-gradient-to-b from-cielo-300 via-cielo-200 to-cielo-100"
+      className="relative -mt-24 overflow-hidden bg-gradient-to-b from-cielo-300 via-cielo-400 to-cielo-600"
     >
       {/* Puntos blancos titilando en la parte superior */}
       <StarField />
@@ -30,24 +22,7 @@ export default function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-10 pt-36 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:pb-20 lg:pt-40">
         <div className="text-center lg:text-left">
-          {/* Accesos rápidos (texto simple, sin caja) */}
-          <nav
-            aria-label="Accesos rápidos"
-            className="mb-5 flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm font-bold text-cielo-700 lg:justify-start"
-          >
-            {quickLinks.map((link) => (
-              <a key={link.href} href={link.href} className="transition-colors hover:text-sunset-600">
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Badge de categoría como texto simple (sin pill) */}
-          <p className="text-sm font-bold text-cielo-700">
-            🪐 Salón de juegos y eventos infantiles · Culiacán
-          </p>
-
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-tight text-ink-900 sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl font-extrabold leading-tight text-ink-900 sm:text-5xl lg:text-6xl">
             ¡Niños en un mundo de <span className="text-sunset-500">diversión!</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink-500 lg:mx-0">
@@ -66,7 +41,7 @@ export default function Hero() {
               href={business.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full rounded-full border-2 border-cielo-600 px-8 py-4 text-center text-lg font-bold text-cielo-700 transition-colors hover:bg-white/60 sm:w-auto"
+              className="w-full rounded-full bg-[#25D366] px-8 py-4 text-center text-lg font-bold text-white shadow-lg transition-colors hover:bg-[#1ebe5b] sm:w-auto"
             >
               WhatsApp {business.phoneDisplay}
             </a>

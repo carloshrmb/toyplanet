@@ -10,7 +10,7 @@ export type FunColor = "blue" | "green" | "yellow" | "orange";
 const VARIANTS: Record<FunColor, { bg: string; wave: string; dark: boolean }> = {
   blue: { bg: "bg-[#3fa9f5]", wave: "fill-[#2f93d4]", dark: false },
   green: { bg: "bg-[#57b84a]", wave: "fill-[#469a3b]", dark: false },
-  yellow: { bg: "bg-[#ffcb3d]", wave: "fill-[#f2b525]", dark: true },
+  yellow: { bg: "bg-[#ffcb3d]", wave: "fill-[#f2b525]", dark: false },
   orange: { bg: "bg-[#ff8a3d]", wave: "fill-[#f06f1e]", dark: false },
 };
 

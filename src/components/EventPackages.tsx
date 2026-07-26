@@ -104,18 +104,30 @@ export default function EventPackages() {
           <h3 className="text-center font-display text-2xl font-bold text-ink-900 sm:text-3xl">
             Nuestra área de eventos
           </h3>
-          <div className="relative mx-auto mt-8 grid max-w-3xl grid-cols-3 gap-3 sm:gap-6">
-            {eventAreaPhotos.map((photo, i) => (
-              <PhotoCard
-                key={photo.src}
-                photo={photo}
-                rotate={["-rotate-1", "rotate-0", "rotate-1"][i]}
-                sizes="(max-width: 768px) 33vw, 240px"
-              />
-            ))}
-            <div className="absolute -right-6 -top-12 hidden animate-float lg:block">
+          <div className="relative mt-8">
+            {/* Astronauta decorativo (fuera del carril que hace scroll) */}
+            <div className="pointer-events-none absolute -right-6 -top-12 z-10 hidden animate-float lg:block">
               <Astronaut className="h-28 w-28 drop-shadow-lg" />
             </div>
+
+            {/* Carrusel deslizable (swipe horizontal, imágenes más grandes) */}
+            <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 sm:gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {eventAreaPhotos.map((photo) => (
+                <div
+                  key={photo.src}
+                  className="w-[78%] shrink-0 snap-center sm:w-[52%] lg:w-[42%]"
+                >
+                  <PhotoCard
+                    photo={photo}
+                    sizes="(max-width: 640px) 78vw, (max-width: 1024px) 52vw, 42vw"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-3 text-center text-sm font-bold text-cielo-700">
+              Desliza para ver más →
+            </p>
           </div>
         </div>
 
@@ -150,12 +162,9 @@ export default function EventPackages() {
           </div>
 
           <div className="rounded-3xl bg-white p-7 shadow-lg">
-            <p className="text-sm font-bold uppercase tracking-wide text-ribbon-500">
-              Restringimos el ingreso de:
+            <p className="font-display text-xl font-bold text-ink-900">
+              🚫 Restringimos el ingreso de:
             </p>
-            <h3 className="mt-1 font-display text-xl font-bold text-ink-900">
-              🚫 Qué no está permitido ingresar
-            </h3>
             <p className="mt-1 text-sm text-ink-500">Aplica con o sin paquete de evento.</p>
             <ul className="mt-5 space-y-3">
               {notAllowedItems.map((item) => (
