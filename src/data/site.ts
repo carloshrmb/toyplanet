@@ -12,7 +12,7 @@ export const business = {
   phoneDisplay: "667 332 6252",
   phoneHref: "tel:+526673326252",
   whatsappUrl: "https://wa.me/526673326252",
-  schedule: "Todos los días · 11:00 AM – 6:30 PM",
+  schedule: "Todos los días · 11:00 AM – 7:00 PM",
   instagram: "toyplanetcln",
   instagramUrl: "https://www.instagram.com/toyplanetcln",
   facebookLabel: "toy planet",

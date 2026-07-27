@@ -28,7 +28,7 @@ const highlights: {
   {
     emoji: "📅",
     title: "Abierto todos los días",
-    text: "De 11:00 AM a 6:30 PM, con acceso sin límite de tiempo.",
+    text: "De 11:00 AM a 7:00 PM, con acceso sin límite de tiempo.",
     color: "orange",
   },
 ];
