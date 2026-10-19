@@ -17,6 +17,18 @@ export const business = {
   instagramUrl: "https://www.instagram.com/toyplanetcln",
   facebookLabel: "toy planet",
   facebookUrl: "https://www.facebook.com/toyplanetcln",
+
+  // Datos para SEO y datos estructurados (schema.org / Open Graph)
+  url: "https://www.toyplanet.mx",
+  phoneE164: "+526673326252",
+  streetAddress: "Presa Valsequillo 911, Las Quintas",
+  addressLocality: "Culiacán",
+  addressRegion: "Sinaloa",
+  postalCode: "80060",
+  addressCountry: "MX",
+  opensAt: "11:00",
+  closesAt: "19:00",
+
   mapsEmbedUrl:
     "https://www.google.com/maps?q=Presa+Valsequillo+911,+Las+Quintas,+80060+Culiac%C3%A1n,+Sinaloa&output=embed",
   mapsLinkUrl:
@@ -34,42 +46,42 @@ export type GalleryPhoto = {
 export const facilityPhotos: GalleryPhoto[] = [
   {
     src: "/images/instalaciones-alberca-pelotas-resbaladilla.jpeg",
-    alt: "Alberca de pelotas con resbaladilla en Toy Planet",
+    alt: "Alberca de pelotas con resbaladilla gigante en Toy Planet, Culiacán",
     label: "Alberca de pelotas con resbaladilla",
   },
   {
     src: "/images/instalaciones-alberca-pelotas-mural.jpeg",
-    alt: "Alberca de pelotas con mural colorido",
+    alt: "Alberca de pelotas con mural colorido en Toy Planet",
     label: "Alberca de pelotas",
   },
   {
     src: "/images/instalaciones-area-juegos-jirafa.jpeg",
-    alt: "Área de juegos con jirafa gigante",
+    alt: "Área de juegos infantil con jirafa gigante en Toy Planet",
     label: "Área de juegos",
   },
   {
     src: "/images/instalaciones-resbaladillas-color.jpeg",
-    alt: "Resbaladillas de colores",
+    alt: "Resbaladillas de colores en el área de juegos de Toy Planet",
     label: "Resbaladillas",
   },
   {
     src: "/images/instalaciones-alberca-pelotas-azul.jpeg",
-    alt: "Alberca de pelotas azules",
+    alt: "Alberca de pelotas azules en Toy Planet",
     label: "Alberca de pelotas azul",
   },
   {
     src: "/images/instalaciones-botes-agua.jpeg",
-    alt: "Botes de agua para los peques",
+    alt: "Juego de botes de agua para niños en Toy Planet",
     label: "Botes de agua",
   },
   {
     src: "/images/instalaciones-arcade-neon.jpeg",
-    alt: "Zona arcade con luces neón",
+    alt: "Zona de arcade con luces neón en Toy Planet, Culiacán",
     label: "Zona arcade",
   },
   {
     src: "/images/instalaciones-tunel-tobogan.jpeg",
-    alt: "Túnel con tobogán",
+    alt: "Túnel con tobogán en el área de juegos de Toy Planet",
     label: "Túnel y tobogán",
   },
 ];
@@ -77,24 +89,24 @@ export const facilityPhotos: GalleryPhoto[] = [
 export const eventAreaPhotos: GalleryPhoto[] = [
   {
     src: "/images/area-eventos-decorada.jpeg",
-    alt: "Área de eventos decorada con arco de globos",
+    alt: "Salón de eventos decorado con arco de globos en Toy Planet",
     label: "Área de eventos decorada",
   },
   {
     src: "/images/area-eventos-mesas-1.jpeg",
-    alt: "Mesas del área de eventos",
+    alt: "Mesas decoradas para fiesta infantil en Toy Planet",
     label: "Mesas para tu festejo",
   },
   {
     src: "/images/area-eventos-mesas-2.jpeg",
-    alt: "Área de mesas para invitados",
+    alt: "Área de mesas para invitados en el salón de eventos de Toy Planet",
     label: "Espacio para invitados",
   },
 ];
 
 export const heroPhoto: GalleryPhoto = {
   src: "/images/fachada-letrero-toyplanet.jpeg",
-  alt: "Interior de Toy Planet con letrero y área de juegos",
+  alt: "Interior de Toy Planet, área de juegos y salón de fiestas infantiles en Culiacán",
   label: "Nuestras instalaciones",
 };
 

@@ -24,6 +24,11 @@ export default function Hero() {
         <div className="text-center lg:text-left">
           <h1 className="font-display text-4xl font-extrabold leading-tight text-ink-900 sm:text-5xl lg:text-6xl">
             ¡Niños en un mundo de <span className="text-sunset-500">diversión!</span>
+            <span className="sr-only">
+              {" "}
+              Toy Planet, área de juegos y salón de fiestas infantiles en
+              Culiacán, Sinaloa.
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink-500 lg:mx-0">
             Albercas de pelotas, resbaladillas, zona arcade y un área de
